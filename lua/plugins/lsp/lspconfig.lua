@@ -6,7 +6,6 @@ return {
 		{ "VonHeikemen/lsp-zero.nvim", branch = "v4.x" },
 		"hrsh7th/cmp-nvim-lsp",
 		"hrsh7th/nvim-cmp",
-		"hrsh7th/cmp-vsnip",
 		"L3MON4D3/LuaSnip",
 	},
 	config = function()
@@ -38,7 +37,6 @@ return {
 		cmp.setup({
 			snippet = {
 				expand = function(args)
-					vim.fn["vsnip#anonymous"](args.body)
 					require("luasnip").lsp_expand(args.body)
 				end,
 			},
@@ -55,8 +53,8 @@ return {
 			}),
 			sources = cmp.config.sources({
 				{ name = "nvim_lsp" },
-				{ name = "vsnip" }, -- For vsnip users.
-				-- { name = "luasnip" }, -- For luasnip users.
+				{ name = "luasnip" }, -- For luasnip users.
+				-- { name = "vsnip" }, -- For vsnip users.
 				-- { name = 'ultisnips' }, -- For ultisnips users.
 				-- { name = 'snippy' }, -- For snippy users.
 			}, {
